@@ -108,5 +108,23 @@ class modCLM_ArchivHelper
 	return $saison;
 	}
 
+	public static function getRunde(&$params) {
+		$liga	= JRequest::getVar( 'liga', 0);
+		$db	= JFactory::getDBO();
+	
+		$query = " SELECT  a.* "
+			." FROM #__clm_runden_termine as a"
+			." LEFT JOIN #__clm_saison as s ON s.id = a.sid "
+			." WHERE a.liga =".$liga
+			." AND s.published = 1"
+			." AND s.archiv  = 1"
+			." ORDER BY a.nr ASC"
+			;
+		$db->setQuery( $query );
+		$runden = $db->loadObjectList();
+
+		return $runden;
+	}
+
 }
  
