@@ -17,7 +17,7 @@ class modCLM_ArchivHelper
 
 	if ($par_mt_type == 0) {
 		if (($atyp == 0 OR $liga > 0) AND $turnier == 0 AND $sid > 0) {
-			$query = "SELECT  a.sid, a.id, a.name, a.runden, a.durchgang, a.rang, a.runden_modus, a.liga_mt "
+			$query = "SELECT  a.sid, a.id, a.name, a.runden, a.durchgang, a.rang, a.runden_modus, a.liga_mt, a.params "
 				."\n FROM #__clm_liga as a"
 				."\n LEFT JOIN #__clm_saison as s ON s.id = a.sid "
 				."\n WHERE a.published = 1"
