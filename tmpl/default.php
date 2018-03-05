@@ -41,14 +41,23 @@ if($sid == $saison->id AND !isset($url)) { ?>
 <ul><?php
 foreach ($link as $link) {
   if ($par_mt_type == 0) {
-	$params = new clm_class_params($link->params);
+	//Liga-Parameter aufbereiten
+	$paramsStringArray = explode("\n", $link->params);
+	$lparams = array();
+	foreach ($paramsStringArray as $value) {
+		$ipos = strpos ($value, '=');
+		if ($ipos !==false) {
+			$lparams[substr($value,0,$ipos)] = substr($value,$ipos+1);
+		}
+	}	
+	if (!isset($lparams['firstView'])) $lparams['firstView']= 0;
 // Hauptlinks des Menüs für Ligen und Mannschaftsturniere
 ?>
 	<li <?php if ($liga == $link->id AND $typeid == 21) { ?> id="current" class="first_link" <?php } ?>>
 	<?php $typeid = 21; 
 		$view21 = 'rangliste';
-		if ($params->get("firstView","0") == "0") { $viewA = "rangliste"; }
-		elseif ($params->get("firstView","0") == "1") { $viewA = "tabelle"; }
+		if ($lparams['firstView'] == 0) { $viewA = "rangliste"; }
+		elseif ($lparams['firstView'] == 1) { $viewA = "tabelle"; }
 		else { $viewA = "paarungsliste"; }
 		if ($link->runden_modus == 1 OR $link->runden_modus == 2 OR $link->runden_modus == 3) $view21 = $viewA;
 	    if ($link->runden_modus == 4 OR $link->runden_modus == 5) $view21 = 'paarungsliste'; ?>
