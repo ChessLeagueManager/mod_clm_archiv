@@ -2,7 +2,7 @@
 <extension type="module" version="1.7.0" client="site" method="upgrade">
 	<name>CLM Archiv Modul</name>
 	<author>CLM Projekt</author>
-	<creationDate>03.03.2018</creationDate>
+	<creationDate>12.03.2018</creationDate>
 	<copyright>(C) Copyright 2008 - 2018 by CLM Project</copyright>
 	<license>GNU/GPL</license>
 	<authorEmail>fishpoke@fishpoke.de</authorEmail>
