@@ -11,6 +11,9 @@ $ -> Language fix or change
 - -> Removed
 ! -> Note
 
+- - - - - 4.0.0 - [29-11-2023] - - - - - - - - - - - - - - - - - - - -
+^ Code-Anpassung Joomla 4.4.1: Aufbau der Sprachdateien
+
 - - - - - 3.4.0 - [14-09-2021] - - - - - - - - - - - - - - - - - - - -
 ^ Code-Anpassung Joomla 4
 
