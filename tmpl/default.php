@@ -1,12 +1,14 @@
 <?php 
 /**
  * @ Chess League Manager (CLM) Archiv Modul 
- * @Copyright (C) 2008-2021 CLM Team.  All rights reserved
+ * @Copyright (C) 2008-2026 CLM Team.  All rights reserved
  * @license http://www.gnu.org/copyleft/gpl.html GNU/GPL
- * @link http://www.chessleaguemanager.de
+ * @link https://chessleaguemanager.org
 */
 // no direct access
 defined('_JEXEC') or die('Restricted access'); 
+
+use Joomla\CMS\Language\Text;
 
 $sid	= clm_core::$load->request_int( 'saison');
 $liga	= clm_core::$load->request_int( 'liga');
@@ -81,7 +83,7 @@ if ($liga == $link->id AND $view == $view21 AND !isset($url) ) { ?>
 		if ($link->runden_modus == 1 OR $link->runden_modus == 2 OR $link->runden_modus == 3) { ?>
 		<li class="first_link liga<?php echo $liga; ?>">
 		<a href="index.php?option=com_clm&amp;view=paarungsliste&amp;saison=<?php echo $link->sid; ?>&amp;liga=<?php echo $liga; ?><?php if ($itemid <>'') { echo "&Itemid=".$itemid; } ?><?php if ($typeid <>'') { echo "&typeid=".$typeid; } ?>">
-		<span><?php echo JText::_('MOD_CLM_ARCHIV_PAIRINGLIST_LABEL'); ?></span></a>
+		<span><?php echo Text::_('MOD_CLM_ARCHIV_PAIRINGLIST_LABEL'); ?></span></a>
 		</li>
 		<?php } ?>
 	<?php for ($y=0; $y < $link->runden; $y++) { ?>
@@ -115,13 +117,13 @@ if ($liga == $link->id AND $view == $view21 AND !isset($url) ) { ?>
 	if ($countryversion == "de") { ?>
 		<li <?php if ($view == 'dwz_liga') { ?> id="current" class="active" <?php } ?>>
 		<a href="index.php?option=com_clm&amp;view=dwz_liga&amp;saison=<?php echo $link->sid; ?>&amp;liga=<?php echo $liga; ?><?php if ($itemid <>'') { echo "&Itemid=".$itemid; } ?><?php if ($typeid <>'') { echo "&typeid=".$typeid; } ?>" <?php if ($view == 'dwz_liga') { ?> class="active_link" <?php } ?>>
-		<span><?php if ($countryversion == "de") echo JText::_('MOD_CLM_ARCHIV_PARAM_DWZ_LABEL'); else echo JText::_('MOD_CLM_ARCHIV_PARAM_GRADES_LABEL'); ?></span></a>
+		<span><?php if ($countryversion == "de") echo Text::_('MOD_CLM_ARCHIV_PARAM_DWZ_LABEL'); else echo Text::_('MOD_CLM_ARCHIV_PARAM_GRADES_LABEL'); ?></span></a>
 		</li>
 	<?php } ?> 
 
 		<li <?php if ($view == 'statistik') { ?> id="current" class="active" <?php } ?>>
 		<a href="index.php?option=com_clm&amp;view=statistik&amp;saison=<?php echo $link->sid; ?>&amp;liga=<?php echo $liga; ?><?php if ($itemid <>'') { echo "&Itemid=".$itemid; } ?><?php if ($typeid <>'') { echo "&typeid=".$typeid; } ?>" <?php if ($view == 'statistik') { ?> class="active_link" <?php } ?>>
-		<span><?php echo JText::_('MOD_CLM_ARCHIV_PARAM_STATS_LABEL'); ?></span></a>
+		<span><?php echo Text::_('MOD_CLM_ARCHIV_PARAM_STATS_LABEL'); ?></span></a>
 		</li>
 	</ul>
 	<?php } ?>
@@ -133,7 +135,7 @@ if ($liga == $link->id AND $view == $view21 AND !isset($url) ) { ?>
 	<ul>
 		<li <?php if ($view == 'paarungsliste') { ?> id="current" class="active" <?php } ?>>
 		<a href="index.php?option=com_clm&amp;view=paarungsliste&amp;saison=<?php echo $link->sid; ?>&amp;liga=<?php echo $liga; ?><?php if ($itemid <>'') { echo "&Itemid=".$itemid; } ?><?php if ($typeid <>'') { echo "&typeid=".$typeid; } ?>" <?php if ($view == 'paarungsliste') { ?> class="active_link" <?php } ?>>
-		<span><?php echo JText::_('MOD_CLM_ARCHIV_PAIRINGLIST_LABEL'); ?></span></a>
+		<span><?php echo Text::_('MOD_CLM_ARCHIV_PAIRINGLIST_LABEL'); ?></span></a>
 		</li>
 	<?php for ($y=0; $y < $link->runden; $y++) { ?>
 		<li <?php if ($view == 'runde' AND $dg == 1 AND ($runde == $y+1)) { ?> id="current" class="active" <?php } ?>>
@@ -168,13 +170,13 @@ if ($liga == $link->id AND $view == $view21 AND !isset($url) ) { ?>
 	if ($countryversion == 'de') { ?>
 		<li <?php if ($view == 'dwz_liga') { ?> id="current" class="active" <?php } ?>>
 		<a href="index.php?option=com_clm&amp;view=dwz_liga&amp;saison=<?php echo $link->sid; ?>&amp;liga=<?php echo $liga; ?><?php if ($itemid <>'') { echo "&Itemid=".$itemid; } ?><?php if ($typeid <>'') { echo "&typeid=".$typeid; } ?>" <?php if ($view == 'dwz_liga') { ?> class="active_link" <?php } ?>>
-		<span><?php if ($countryversion == 'de') echo JText::_('MOD_CLM_ARCHIV_PARAM_DWZ_LABEL'); else echo JText::_('MOD_CLM_ARCHIV_PARAM_GRADES_LABEL'); ?></span></a>
+		<span><?php if ($countryversion == 'de') echo Text::_('MOD_CLM_ARCHIV_PARAM_DWZ_LABEL'); else echo Text::_('MOD_CLM_ARCHIV_PARAM_GRADES_LABEL'); ?></span></a>
 		</li>
 	<?php } ?> 
 
 		<li <?php if ($view == 'statistik') { ?> id="current" class="active" <?php } ?>>
 		<a href="index.php?option=com_clm&amp;view=statistik&amp;saison=<?php echo $link->sid; ?>&amp;liga=<?php echo $liga; ?><?php if ($itemid <>'') { echo "&Itemid=".$itemid; } ?><?php if ($typeid <>'') { echo "&typeid=".$typeid; } ?>" <?php if ($view == 'statistik') { ?> class="active_link" <?php } ?>>
-		<span><?php echo JText::_('MOD_CLM_ARCHIV_PARAM_STATS_LABEL'); ?></span></a>
+		<span><?php echo Text::_('MOD_CLM_ARCHIV_PARAM_STATS_LABEL'); ?></span></a>
 		</li>
 	</ul>
 	</li>

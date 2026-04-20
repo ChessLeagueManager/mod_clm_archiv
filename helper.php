@@ -1,19 +1,21 @@
 <?php
 /**
  * @ Chess League Manager (CLM) Archiv Modul 
- * @Copyright (C) 2008-2021 CLM Team.  All rights reserved
+ * @Copyright (C) 2008-2026 CLM Team.  All rights reserved
  * @license http://www.gnu.org/copyleft/gpl.html GNU/GPL
- * @link http://www.chessleaguemanager.de
+ * @link https://chessleaguemanager.org
 */
 // no direct access
 defined('_JEXEC') or die('Restricted access');
+
+use Joomla\CMS\Factory;
 
 class modCLM_ArchivHelper
 {
 	public static function getLink(&$params)
 	{
 	global $mainframe;
-	$db			= JFactory::getDBO();
+	$db			= Factory::getDBO();
 	$par_mt_type = $params->def('mt_type', 0);
 	$sid		= clm_core::$load->request_int( 'saison', 0);
 	$turnier	= clm_core::$load->request_int( 'turnier', 0);
@@ -70,7 +72,7 @@ class modCLM_ArchivHelper
 	public static function getCount(&$params)
 	{
 	global $mainframe;
-	$db			= JFactory::getDBO();
+	$db			= Factory::getDBO();
 	$par_mt_type = $params->def('mt_type', 0);
 
 	if ($par_mt_type == 0) {
@@ -99,7 +101,7 @@ class modCLM_ArchivHelper
 	public static function getSaison(&$params)
 	{
 	global $mainframe;
-	$db			= JFactory::getDBO();
+	$db			= Factory::getDBO();
 
 	$query = "SELECT  a.id, a.name "
 		."\n FROM #__clm_saison as a "
@@ -115,7 +117,7 @@ class modCLM_ArchivHelper
 
 	public static function getRunde(&$params) {
 		$liga	= clm_core::$load->request_int( 'liga', 0);
-		$db	= JFactory::getDBO();
+		$db	= Factory::getDBO();
 	
 		$query = " SELECT  a.* "
 			." FROM #__clm_runden_termine as a"
